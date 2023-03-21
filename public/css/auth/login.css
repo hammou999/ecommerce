@@ -1,0 +1,155 @@
+* {
+    padding: 0px;
+    margin: 0px;
+    font-size: 12px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 900;
+    color: rgb(32, 23, 42);
+}
+
+body,
+html {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(156, 195, 192);
+}
+
+.container-1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 500px;
+}
+
+.box-1 {
+    padding: 20px;
+    background-color: rgb(236, 240, 249);
+    border-radius: 20px;
+    width: 500px;
+}
+
+.d1 {
+    float: left;
+}
+
+.d2 {
+    float: right;
+    font-size: 15px;
+}
+
+.box-11 {
+    padding: 70px 20px 20px 20px;
+}
+
+.box-2 {
+    margin: 10px;
+    border: 1px #ccc solid;
+    padding: 10px;
+    background-color: azure;
+}
+
+
+.block div {
+    padding: 5px;
+    margin: 5px;
+
+}
+
+.block h5 {
+    padding-bottom: 5px;
+}
+
+.block input {
+    border-radius: 10px;
+    border: none;
+    background-color: white;
+    border-color: black;
+    height: 25px;
+    padding: 10px 10px 10px 50px;
+    outline: none;
+}
+
+.block input:focus {
+    box-shadow: 0 0 0 1pt blanchedalmond;
+}
+
+.checkbox {
+    border-color: black;
+    outline: none;
+    text-align: center;
+}
+
+.checkbox input {
+    height: 15px;
+    vertical-align: bottom;
+}
+
+.singnup_input {
+    position: relative;
+}
+
+.button {
+    width: 250PX;
+    height: 180px;
+    cursor: pointer;
+    margin: 20px;
+}
+
+.in1 {
+    background-image: url('../../picture/auth/email.png');
+    background-repeat: no-repeat;
+    background-position: 10px 7px;
+    background-size: 30px 30px;
+    width: calc(100% - 50px);
+}
+
+.in2 {
+    background-image: url('../../picture/auth/lock.png');
+    background-repeat: no-repeat;
+    background-position: 10px 7px;
+    background-size: 30px 30px;
+    width: calc(100% - 50px);
+}
+
+.block select {
+    border-radius: 20px;
+    -moz-appearance: none;
+    /* Firefox */
+    -webkit-appearance: none;
+    background: transparent;
+    background-image: url("data:image/svg+xml;utf8,<svg fill='black' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>");
+    background-repeat: no-repeat;
+    background-position-x: 100%;
+    background-position-y: 6px;
+    border: none;
+    background-color: white;
+    border-color: black;
+    height: 40px;
+    width: 100%;
+    padding: 5px;
+    outline: none;
+}
+
+.block select option {
+    border-radius: 10px;
+}
+
+.button-signup {
+    height: 180px;
+    justify-content: center;
+    cursor: pointer;
+    margin: 20px;
+}
+
+.submit{
+    background-image: url('../../picture/auth/2.PNG');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    border: none;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    }

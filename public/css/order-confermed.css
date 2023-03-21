@@ -1,0 +1,20 @@
+.app-heading{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.app-heading img{
+    width: 100%;
+    height: auto;
+}
+
+.welcom{
+    font-size: 14px;
+}
+
+.confirmed{
+    font-size: 18px;
+    font-weight: bolder;
+}

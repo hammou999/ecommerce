@@ -1,0 +1,343 @@
+* {
+    padding: 0px;
+    margin: 0px;
+    font-size: 11px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 900;
+}
+
+body,html{
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+body {
+    background-color: rgb(156, 195, 192);
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.box-1 {
+    margin: 10px 50px 10px 10px;
+    padding: 10px;
+    background-color: rgb(236, 240, 249);
+    border-radius: 10px;
+    width: 350px;
+}
+
+.box-input {
+    margin: 0px 10px 20px 10px;
+}
+
+.box-head{
+    margin-bottom: 60px;
+}
+
+.sing {
+    float: left;
+}
+
+.x {
+    float: right;
+    font-size: 13px;
+}
+.two-box{
+    display: flex;
+    width: 100%;
+}
+
+.box-input h5 {
+    padding-bottom: 5px;
+}
+
+.box-input input {
+    width: calc(100% - 18px);
+    border-radius: 20px;
+    padding: 3px;
+    padding-left: 15px;
+    border: none;
+    background-color: white;
+    border-color: black;
+    height: 30px;
+    outline: none;
+}
+
+.box-input input:focus {
+    box-shadow: 0 0 0 1pt blanchedalmond;
+}
+
+.checkbox {
+    border-color: black;
+    outline: none;
+    text-align: center;
+}
+
+.checkbox input {
+    height: 15px;
+
+    vertical-align: bottom;
+}
+
+.button-signup {
+    width: calc(100%-20px);
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+    margin: 20px;
+}
+
+/*-----------------------------------------*/
+
+
+.box-input select {
+    border-radius: 20px;
+    -moz-appearance: none;
+    /* Firefox */
+    -webkit-appearance: none;
+    background: transparent;
+    background-image: url("data:image/svg+xml;utf8,<svg fill='black' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>");
+    background-repeat: no-repeat;
+    background-position-x: 100%;
+    background-position-y: 6px;
+    border: none;
+    background-color: white;
+    border-color: black;
+    height: 40px;
+    width: 100%;
+    padding: 5px;
+    outline: none;
+}
+
+
+.skills {
+    padding: 5px;
+    margin: 5px;
+}
+
+.skills h5 {
+    padding-bottom: 5px;
+}
+
+.wrapper {
+    background: #fff;
+    border-radius: 10px;
+    padding: 18px 25px 20px;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.06);
+}
+
+.wrapper :where(.title, li, li i, .details) {
+    display: flex;
+    align-items: center;
+}
+
+.title img {
+    max-width: 21px;
+}
+
+.title h2 {
+    margin-left: 8px;
+}
+
+.wrapper .content {
+    margin: 10px 0;
+}
+
+
+.content ul {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 5px;
+    margin: 12px 0;
+    border-radius: 15px;
+    border: 1px solid #a6a6a6;
+}
+
+.content ul li {
+    color: #333;
+    margin: 4px 3px;
+    list-style: none;
+    border-radius: 5px;
+    background: #F2F2F2;
+    padding: 5px 8px 5px 10px;
+    border: 1px solid #e3e1e1;
+}
+
+.content ul li i {
+    height: 20px;
+    width: 20px;
+    color: #808080;
+    margin-left: 8px;
+    cursor: pointer;
+    border-radius: 50%;
+    background: #dfdfdf;
+    justify-content: center;
+}
+
+.content ul input {
+    flex: 1;
+    padding: 2px;
+    border: none;
+    outline: none;
+    border-radius: 50px;
+}
+
+.wrapper .details {
+    justify-content: space-between;
+}
+
+.details button {
+    border: none;
+    outline: none;
+    color: #fff;
+    cursor: pointer;
+    padding: 9px 15px;
+    border-radius: 5px;
+    background: #5372F0;
+    transition: 0.3s ease;
+}
+
+.details button:hover {
+    background: #2c52ed;
+}
+
+#cars option {
+    border-radius: 50px;
+    padding: 200px;
+    background-color: crimson;
+}
+
+
+/*-----------------*/
+
+.container1,
+.container2 {
+    height: 60px;
+}
+
+.select-box {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.select-box .options-container1 {
+    background: #2f3640;
+    color: #f5f6fa;
+    max-height: 0;
+    opacity: 0;
+    transition: all 0.4s;
+    border-radius: 20px 10px 10px 20px;
+    overflow: hidden;
+    order: 1;
+    position: absolute;
+    width: 100%;
+    margin-top: 42px;
+    z-index: 20;
+
+}
+
+.select-box .options-container2 {
+    background: #2f3640;
+    color: #f5f6fa;
+    max-height: 0;
+    opacity: 0;
+    transition: all 0.4s;
+    border-radius: 20px 10px 10px 20px;
+    overflow: hidden;
+    order: 1;
+    position: absolute;
+    width: 100%;
+    margin-top: 42px;
+    z-index: 20;
+}
+
+.selected1,
+.selected2 {
+    background: #2f3640;
+    border-radius: 50px;
+    margin-bottom: 3px;
+    color: #f5f6fa;
+    position: relative;
+    order: 0;
+    user-select: none;
+}
+
+.selected1::after,
+.selected2::after {
+    content: "";
+    background: url("img/arrow-down.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;
+    height: 100%;
+    width: 32px;
+    right: 10px;
+    top: 5px;
+    transition: all 0.4s;
+}
+
+.select-box .options-container1.active,
+.select-box .options-container2.active {
+    max-height: 240px;
+    opacity: 1;
+    overflow-y: scroll;
+    
+}
+
+.select-box .options-container1.active+.selected::after,
+.select-box .options-container2.active+.selected::after {
+    transform: rotateX(180deg);
+    top: -6px;
+}
+
+.select-box .options-container1::-webkit-scrollbar,
+.select-box .options-container2::-webkit-scrollbar {
+    width: 10px;
+    right: 10px;
+    background: #0d141f;
+    border-radius: 0 100px 100px 0;
+}
+
+.select-box .options-container1::-webkit-scrollbar-thumb,
+.select-box .options-container2::-webkit-scrollbar-thumb {
+    background: #525861;
+    border-radius: 0 100px 100px 0;
+}
+
+.select-box .option1,
+.selected1,
+.select-box .option2,
+.selected2 {
+    padding: 12px 24px;
+    cursor: pointer;
+}
+
+.select-box .option1:hover,
+.select-box .option2:hover {
+    background: #414b57;
+}
+
+.select-box label {
+    cursor: pointer;
+}
+
+.select-box .option1 .radio,
+.select-box .option2 .radio {
+    display: none;
+}
+
+
+.submit{
+background-image: url('../../picture/auth/1.PNG');
+background-size: contain;
+background-repeat: no-repeat;
+border: none;
+width: 80%;
+cursor: pointer;
+}

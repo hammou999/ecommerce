@@ -1,0 +1,183 @@
+.cont{
+    width: 100%;
+}
+
+.header h1{
+    font-size: 22px;
+    padding: 10px;
+    text-align: center;
+    font-weight: bolder;
+}
+
+
+.table-orders{
+    border-spacing: 1px;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+}
+.table-head{
+    height: 70px;
+    background: #36304a;
+    color: white;
+
+}
+
+tr{
+    font-family: OpenSans-Regular;
+    font-size: 13px;
+    color: #808080;
+    line-height: 1.2;
+    font-weight: unset;
+    height: 65px;
+    cursor: pointer;
+}
+
+
+tbody tr:nth-child(odd) {
+background-color: #f5f5f5;
+}
+
+
+
+tbody tr:hover {
+    color: #555555;
+    background-color: #d1d1d1;
+    cursor: pointer;
+}
+
+.order-action{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: inherit;
+}
+
+
+.refuse-order,.accept-order{
+    width: 25px;
+    height: 25px;
+    background-size: cover;
+    margin: 5px;
+    transition: all .25s;
+}
+.refuse-order:hover,.accept-order:hover{
+    width: 31px;
+    height: 31px;
+    margin: 2px;
+}
+
+.refuse-order{
+    background-image: url("/picture/icon/refuse.png")
+}
+.accept-order{
+    background-image: url("/picture/icon/accept.png")
+}
+
+.confirmed-order,.pending-order,.canceled-order{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 25px;
+    height: 25px;
+    background-size: cover;
+    transition: transform .7s ease-in-out;
+}
+
+.confirmed-order:hover,.pending-order:hover,.canceled-order:hover{
+    width: 29px;
+    height: 29px;
+    transform: rotate(360deg);
+}
+
+.confirmed-order{
+    background-image: url("/picture/icon/confirmed.png")
+}
+
+.pending-order{
+    background-image: url("/picture/icon/pending.png")
+}
+
+.canceled-order{
+    background-image: url("/picture/icon/canceled.png")
+}
+
+.order-img img{
+    width: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    transition: transform .2s;
+
+}
+
+.order-img img:hover{
+    transform: scale(4);
+    z-index: 99;
+}
+.annulled-order{
+    transition: transform 2s;
+    font-weight: bold;
+}
+
+.annulled-order:hover{
+    font-size: 16px;
+    text-decoration: underline red;
+}
+
+
+.columnPhone {
+    display: none;
+}
+.columnPc{
+    display: table-cell;
+}
+
+tr{
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+td{
+    padding: 8px 0 8px 0;
+}
+
+main{
+    padding: 20px;
+}
+
+.phone{
+text-decoration-line: underline;
+}
+
+@media only screen and (max-width: 580px) {
+    .columnPhone {
+        display: table-cell;
+    }
+    .columnPc{
+        display: none;
+    }
+}
+
+
+@media only screen and (max-width: 480px) {
+
+    tr{
+        font-size: 12px;
+    }
+
+    td{
+        padding: 5px 0 5px 0;
+    }
+
+    main{
+        padding: 5px;
+    }
+}
+
+
+
+

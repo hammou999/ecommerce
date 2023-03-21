@@ -1,0 +1,111 @@
+<template>
+    <div class="box12">
+        <div class="box121">
+            <div class="picP">
+                <img class="photo-pff" src="picture/profile.jpg">
+                <div class="shadow1"></div>
+                <div class="shadow2"></div>
+            </div>
+        </div>
+        <div class="box122">
+            <div class="box-input">
+                <h5>LAST NAME</h5>
+                <input type="text" name="last_name">
+            </div>
+            <div class="box-input">
+                <h5>LAST NAME</h5>
+                <input type="text" name="last_name">
+            </div>
+            <div class="box-input">
+                <h5>LAST NAME</h5>
+                <input type="text" name="last_name">
+            </div>
+            <div class="box-input">
+                <h5>LAST NAME</h5>
+                <input type="text" name="last_name">
+            </div>
+            <div class="box-input">
+                <h5>WILAYA</h5>
+                <div class="select-box">
+                    <div class="options-container" :class="{ active: showMobileMenu }">
+                        <div class="option" v-for="(w,index) in wilaya" @click="select(w)">
+                            <input type="radio" class="radio" id="news" name="category" />
+                            <label for="news" >{{w}}</label>
+                        </div>
+                    </div>
+                    <div class="selected" @click="showMobileMenu = !showMobileMenu">
+                        {{ w ? w : 'select' }}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="box123">
+            <div class="box1231">
+                <div class="box-input">
+                    <h5>CONFIRM PASSWORD</h5>
+                    <div class="wrapper">
+                        <div class="contentt">
+                            <p>Press enter or add a comma after each Skills</p>
+                            <ul>
+                                <li v-for="(tag,index) in tags">
+                                    {{ tag }}
+                                    <i class="uit uit-multiply" @click="remove(this,index)"></i>
+                                </li>
+                                <input class="input-skills" type="text" spellcheck="false" @keydown.enter="createTag" v-model="tag">
+                            </ul>
+                        </div>
+                        <div class="details">
+                            <p><span>{{ tags.length }}</span> tags are remaining</p>
+                            <button @click="this.tags=[]">Remove All</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="box1232">
+
+            </div>
+        </div>
+    </div>
+</template>
+
+<script>
+    export default {
+        mounted() {
+
+        /*-------------------------*/
+        },
+        data() {
+            return {
+                tag: '',
+                tags : ["coding","coding", "nepal"],
+                wilaya:["coding","coding", "nepal"],
+                daira:["coding","help", "nepal"],
+                commune:["coding","coding", "nepal"],
+                w:"",
+                d:"",
+                c:"",
+                maxTags : 10,
+                showMobileMenu:false
+            };
+        },
+        methods: {
+            createTag(e){
+                e.preventDefault();
+                if(this.tags.length<10){
+                    this.tags.push(this.tag);
+                    this.tag = '';
+                }
+            },
+            remove(element, index){
+                this.tags.splice(index, 1);
+                element.parentElement.remove();
+            },
+            select(value){
+                this.showMobileMenu=false;
+                this.w=value;
+            }
+
+        },
+
+    }
+</script>
