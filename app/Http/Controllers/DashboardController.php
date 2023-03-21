@@ -3,7 +3,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\order;
+use App\Models\Order;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -15,7 +15,7 @@ class DashboardController extends Controller
                        ->with('OrderProducts.Product')
                        ->with('OrderProducts.ProductColor')
                        ->with('OrderProducts.ProductSize')->paginate(2);
-        //dd($orders);
+        dd($orders);
         return view('dashboard',compact('orders'));
 /*
         $orders = order::join('products', 'orders.product_id','products.id')
