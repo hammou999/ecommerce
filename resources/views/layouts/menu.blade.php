@@ -33,7 +33,7 @@
                 <div class="cart-icon">
                 </div>
                 <div class="currency-value">
-                    <span class="disDirection">{{$carts}}</span><span class="currency">&nbsp;د.ج‏</span>
+                    <span class="disDirection total">{{$carts}}</span><span class="currency">&nbsp;د.ج‏</span>
                 </div>
             </div>
         </a>
