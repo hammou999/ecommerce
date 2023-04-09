@@ -11,7 +11,7 @@
                             <img src="/picture/icon/cancel.png" @click="confirm=false">
                         </div>
                         <div class="box-confirm-content">
-                            <div class="roww" v-if="colors">
+                            <div class="roww" v-if="colors.length!=0">
                                 <div class="coll">
                                     <label for="adresse">اللون:<span class="totalItemsAmount">*</span></label>
                                 </div>
@@ -28,7 +28,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="roww" v-if="sizes">
+                            <div class="roww" v-if="sizes.length!=0">
                                 <div class="coll">
                                     <label for="adresse">القيس:<span class="totalItemsAmount">*</span></label>
                                 </div>
@@ -47,7 +47,7 @@
 
                             <div class="roww">
                             <span class="totalItemsAmount">
-                        إجمالي التكلفة (مع التوصيل) <span class="disDirection">{{this.totalItemsAmount.toString().replace(/\B(?=(\d{3})+(?!\d))/g," ")}},00</span> دج</span>
+                        إجمالي التكلفة (بدون التوصيل) <span class="disDirection">{{this.totalItemsAmount.toString().replace(/\B(?=(\d{3})+(?!\d))/g," ")}},00</span> دج</span>
                             </div>
                             <div class="coll2">
                                 <div class="coll1">
@@ -125,8 +125,8 @@
                     </div>
                 </div>
             </div>
+            <div class="roww" v-if="colors.length!=0">
 
-            <div class="roww" v-if="colors">
                 <div class="coll">
                     <label for="adresse">اللون:<span class="totalItemsAmount">*</span></label>
                 </div>
@@ -143,7 +143,7 @@
                     </div>
                 </div>
             </div>
-            <div class="roww" v-if="sizes">
+            <div class="roww" v-if="sizes.length!=0">
                 <div class="coll">
                     <label for="adresse">القيس:<span class="totalItemsAmount">*</span></label>
                 </div>
@@ -298,9 +298,9 @@
             },
 
             addToCart() {
-                if (!this.selectedColor) {
+                if (this.colors.length!=0 && !this.selectedColor) {
                     this.errors = "يرجى إختيار اللون"
-                } else if (!this.selectedSize) {
+                } else if (this.sizes.length!=0 && !this.selectedSize) {
                     this.errors = "يرجى إختيار المقياس"
                 } else {
                     axios.post('/addToCart', {
@@ -496,6 +496,10 @@
         font-size: 16pt;
         font-weight: bold;
         color: #e23333;
+    }
+
+    .totalItemsAmount span{
+        font-size: 16pt;
     }
 
     .error {
@@ -1058,7 +1062,6 @@
     .disDirection {
         direction: ltr !important;
         unicode-bidi: embed !important;
-        font-size: 16pt;
     }
 
     .box-confirm .roww {

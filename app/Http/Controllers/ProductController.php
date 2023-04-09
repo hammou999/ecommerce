@@ -79,10 +79,12 @@ class ProductController extends Controller
     public function addToCart(Request $request){
         //dd($request);
         //dd(Cart::content());
-        //Cart::add($request->product_id, $request->name, $request->qnt,$request->price, 'size' => $request->qnt);
-        Cart::add(['id' => $request->product_id, 'name' => $request->name, 'qty' => $request->quantity, 'price' => $request->price,'weight'=> 0, 'options' => ['color' => $request->colorId,'size' => $request->sizeId,'picture_url'=>$request->picture_url]]);
-    }
 
+        //dd(utf8_encode($request->name));
+        //Cart::add($request->product_id, $request->name, $request->qnt,$request->price, 'size' => $request->qnt);
+        Cart::add(['id' => $request->product_id, 'name' => str_replace(" ","\t",$request->name), 'qty' => $request->quantity, 'price' => $request->price,'weight'=> 0, 'options' => ['color' => $request->colorId?$request->colorId:"",'size' => $request->sizeId?$request->sizeId:"",'picture_url'=>$request->picture_url]]);
+    }
+//
 
 
     /**

@@ -53,7 +53,7 @@ body {
     margin-right: 10px;
     background: #8C8;
     counter-increment: gallery-cell;
-    background-image: url("/picture/product/bord.webp");
+    background-image: url("/picture/carousel/bord.webp");
     background-size: 100% 100%;
     background-color: white;
     padding: 25px;
@@ -235,7 +235,7 @@ product-thumbnail, product-thumbnail:active, product-thumbnail:hover {
     background-color: #803160;
     border-color: #ffffff;
 }
-.product-item:hover, .product-item:hover .product-details {
+.product-item:hover, .product-item:hover .product-thumbnail {
     border-color: #803160;
     box-shadow: 1px 8px 15px grey;
     -webkit-transition:  box-shadow .2s ease-in;

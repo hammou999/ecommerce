@@ -180,6 +180,7 @@
         },
 
         mounted() {
+            console.log(this.cart)
             axios.get("/getWilaya").then(({data}) => {
                 this.all_wilaya = data;
             });

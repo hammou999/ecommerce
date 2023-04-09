@@ -2,6 +2,7 @@
 
 @section('title')
     <title>متجر تحفة يرحب بكم</title>
+    <meta charset="utf-8">
 @endsection
 
 

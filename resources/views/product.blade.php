@@ -53,7 +53,7 @@
 
 
     <div class="gallery js-flickity"
-         data-flickity-options='{ "wrapAround": true }'>
+         data-flickity-options='{"freeScroll": true,"contain": true}'>
         @foreach($product->ProductPicture as $picture)
             <div class="gallery-cell">
                 <a href="product">
@@ -64,7 +64,7 @@
     </div>
 
     <div class="carousel carousel-nav"
-         data-flickity='{ "asNavFor": ".gallery", "contain": true, "pageDots": false }'>
+         data-flickity='{ "asNavFor": ".gallery", "freeScroll": true,"contain": true, "pageDots": false }'>
         @foreach($product->ProductPicture as $picture)
             <div class="carousel-cell">
                 <img src="{{asset("picture/product/"."$product->id"."/".$picture->picture_url)}}"/>
@@ -72,47 +72,8 @@
         @endforeach
     </div>
 
-    <div class="app-heading">
-        <h3 class="heading-primary">وصف المنتج</h3>
-        <div class="item-list">
-            <img src="{{asset('/picture/icon/checked.png')}}" width="30px" height="30px"/>
-            <p>x1 حامل مصباح.</p>
-        </div>
-        <div class="item-list">
-            <img src="{{asset('/picture/icon/checked.png')}}" width="30px" height="30px"/>
-            <p>x1 جهاز تحكم عن بعد.</p>
+    {!! $product->description !!}
 
-        </div>
-        <div class="item-list">
-            <img src="{{asset('/picture/icon/checked.png')}}" width="30px" height="30px"/>
-            <p>x1 حامل جهاز التحكم.</p>
-        </div>
-    </div>
-    <div class="app-heading">
-        <h3 class="heading-primary">مميزات المنتج</h3>
-        <div class="item-list">
-            <img src="{{asset('/picture/icon/checked.png')}}" width="30px" height="30px"/>
-            <p>سهل التركيب.</p>
-        </div>
-        <div class="item-list">
-            <img src="{{asset('/picture/icon/checked.png')}}" width="30px" height="30px"/>
-            <p>مادة عالية الجودة تضمن عمر خدمة طويل.</p>
-        </div>
-        <div class="item-list">
-            <img src="{{asset('/picture/icon/checked.png')}}" width="30px" height="30px"/>
-            <p>تساعد كبار السن والعاجزين من التحكم في مصباح الغرفة من مكانهم.</p>
-
-        </div>
-        <div class="item-list">
-            <img src="{{asset('/picture/icon/checked.png')}}" width="30px" height="30px"/>
-            <p>إطفاء وإشعال المصباح من جهاز التحكم عن بعد 10 أمتار.</p>
-
-        </div>
-        <div class="item-list">
-            <img src="{{asset('/picture/icon/checked.png')}}" width="30px" height="30px"/>
-            <p>مؤقت لإنطفاء المصباح بعد مدة زمنية معينة.</p>
-        </div>
-    </div>
 
     <div class="app-heading">
         <h3 class="heading-primary">إستمارة طلب المنتج</h3>

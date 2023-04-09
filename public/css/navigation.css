@@ -272,6 +272,11 @@
     margin: 18px
 }
 
+.active{
+    background: #FFF !important;
+    color: #11101d !important;
+}
+
 @media (max-width: 420px) {
     .sidebar li .tooltip {
         display: none;

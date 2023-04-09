@@ -31,7 +31,7 @@
         </div>
 
         <div class="gallery js-flickity"
-             data-flickity-options='{ "wrapAround": true }'>
+             data-flickity-options='{"freeScroll": true,"contain": true}'>
 
             @foreach($picturecarousel as $picture)
                 <div class="gallery-cell">
