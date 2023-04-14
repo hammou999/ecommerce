@@ -11,11 +11,14 @@ class DashboardController extends Controller
 {
 
     public function index() {
+        \DB::enableQueryLog();
         $orders = Order::with('Commune')
                        ->with('OrderProducts.Product')
+                       ->with('OrderProducts.ProductType')
                        ->with('OrderProducts.ProductColor')
-                       ->with('OrderProducts.ProductSize')->paginate(2);
-        //dd($orders);
+                       ->with('OrderProducts.ProductSize')->paginate(10);
+        // \DB::getQueryLog()
+        // dd($orders);
         return view('dashboard',compact('orders'));
 /*
         $orders = order::join('products', 'orders.product_id','products.id')

@@ -18,8 +18,10 @@ class CreateOrderProductsTable extends Migration
             $table->integer("quantity");
             $table->foreignId('order_id')->constrained()->onDelete('cascade');
             $table->foreignId('product_id')->constrained()->onDelete('cascade');
-            $table->foreignId('color_id')->constrained("product_colors")->onDelete('cascade')->nullable();;
-            $table->foreignId('size_id')->constrained("product_sizes")->onDelete('cascade')->nullable();;
+            $table->foreignId('type_id')->nullable()->constrained("product_types")->onDelete('cascade');
+            $table->foreignId('color_id')->nullable()->constrained("product_colors")->onDelete('cascade');
+            $table->foreignId('size_id')->nullable()->constrained("product_sizes")->onDelete('cascade');
+            $table->string('picture_url')->nullable();
             $table->timestamps();
         });
     }

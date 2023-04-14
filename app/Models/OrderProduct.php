@@ -19,17 +19,21 @@ class OrderProduct extends Model
 
     public function Product()
     {
-        return $this->hasOne(Product::class,'id');
+        return $this->belongsTo(Product::class,'product_id');
     }
 
+    public function ProductType()
+    {
+        return $this->belongsTo(ProductType::class,'type_id');
+    }
     public function ProductColor()
     {
-        return $this->hasOne(ProductColor::class,'id');
+        return $this->belongsTo(ProductColor::class,'color_id');
     }
 
     public function ProductSize()
     {
-        return $this->hasOne(ProductSize::class,'id');
+        return $this->belongsTo(ProductSize::class,'size_id');
     }
 
 

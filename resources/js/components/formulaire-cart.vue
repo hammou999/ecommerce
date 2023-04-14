@@ -255,8 +255,10 @@
                     products.push({
                         "product_id": rawObject[key].id,
                         "quantity": rawObject[key].qty,
+                        "type_id": rawObject[key].options.type,
                         "color_id": rawObject[key].options.color,
-                        "size_id": rawObject[key].options.size
+                        "size_id": rawObject[key].options.size,
+                        "picture_url": rawObject[key].options.picture_url
                     });
                 });
                 return products;

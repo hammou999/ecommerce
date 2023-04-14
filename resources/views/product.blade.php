@@ -56,9 +56,7 @@
          data-flickity-options='{"freeScroll": true,"contain": true}'>
         @foreach($product->ProductPicture as $picture)
             <div class="gallery-cell">
-                <a href="product">
                     <img src="{{asset("picture/product/"."$product->id"."/".$picture->picture_url)}}"/>
-                </a>
             </div>
         @endforeach
     </div>
@@ -81,7 +79,7 @@
     </div>
 
     <div id="app">
-        <formulaire :product="{{$product}}" :colors="{{$product->ProductColor}}" :sizes="{{$product->ProductSize}}">
+        <formulaire :product="{{$product}}" :colors="{{$product->ProductColor}}" :sizes="{{$product->ProductSize}}" :types="{{$product->ProductType}}">
 
         </formulaire>
     </div>

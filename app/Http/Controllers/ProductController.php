@@ -55,8 +55,10 @@ class ProductController extends Controller
             $op= new OrderProduct();
             $op->product_id=$product['product_id'];
             $op->quantity=$product['quantity'];
+            $op->type_id=$product['type_id'];
             $op->color_id=$product['color_id'];
             $op->size_id=$product['size_id'];
+            $op->picture_url=$product['picture_url'];
             $products[] = $op;
         }
 
@@ -82,7 +84,7 @@ class ProductController extends Controller
 
         //dd(utf8_encode($request->name));
         //Cart::add($request->product_id, $request->name, $request->qnt,$request->price, 'size' => $request->qnt);
-        Cart::add(['id' => $request->product_id, 'name' => str_replace(" ","\t",$request->name), 'qty' => $request->quantity, 'price' => $request->price,'weight'=> 0, 'options' => ['color' => $request->colorId?$request->colorId:"",'size' => $request->sizeId?$request->sizeId:"",'picture_url'=>$request->picture_url]]);
+        Cart::add(['id' => $request->product_id, 'name' => str_replace(" ","\t",$request->name), 'qty' => $request->quantity, 'price' => $request->price,'weight'=> 0, 'options' => ['type' => $request->typeId?$request->typeId:"",'color' => $request->colorId?$request->colorId:"",'size' => $request->sizeId?$request->sizeId:"",'picture_url'=>$request->picture_url]]);
     }
 //
 

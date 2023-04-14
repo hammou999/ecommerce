@@ -33,9 +33,9 @@
                     @foreach ($order->OrderProducts as $product)
                         <div>
                             <div class="order-img">
-                                <img src="{{'/picture/product/'.$product->Product['id'].'/'.$product->Product['url_picture']}}"/>
+                                <img src="{{'/picture/product/'.$product->Product['id'].'/'.$product->picture_url}}"/>
                             </div>
-                            <div> {{$product->Product['title'].($product->ProductSize['title']? " - ".$product->ProductSize['title']:'').($product->ProductColor['title']? " - ".$product->ProductColor['title']:'')}} </div>
+                            <div> {{$product->Product['title'].($product->ProductType['title']? " - ".$product->ProductType['title']:'').($product->ProductSize['title']? " - ".$product->ProductSize['title']:'').($product->ProductColor['title']? " - ".$product->ProductColor['title']:'')}} </div>
                         </div>
                     @endforeach
                 </td>

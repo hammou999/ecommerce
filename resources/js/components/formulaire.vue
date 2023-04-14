@@ -11,6 +11,23 @@
                             <img src="/picture/icon/cancel.png" @click="confirm=false">
                         </div>
                         <div class="box-confirm-content">
+                            <div class="roww" v-if="types.length!=0">
+                                <div class="coll">
+                                    <label for="adresse">النوع:<span class="totalItemsAmount">*</span></label>
+                                </div>
+                                <div class="coll">
+                                    <div class="grilcolor" ref="selectedType">
+                                        <div v-for="type in types" :key="type.id" class="cartitem"
+                                             @click="selectType(type)"
+                                             :class="`clearfix${type.id ==selectedType.id ? ' ItemActive' : ''}`">
+                                            <img v-bind:src="'/picture/product/'+product.id+'/'+type.picture_url"/>
+                                            <div>
+                                                {{type.title}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                             <div class="roww" v-if="colors.length!=0">
                                 <div class="coll">
                                     <label for="adresse">اللون:<span class="totalItemsAmount">*</span></label>
@@ -125,6 +142,23 @@
                     </div>
                 </div>
             </div>
+            <div class="roww" v-if="types.length!=0">
+                <div class="coll">
+                    <label for="adresse">النوع:<span class="totalItemsAmount">*</span></label>
+                </div>
+                <div class="coll">
+                    <div class="grilcolor" ref="selectedType">
+                        <div v-for="type in types" :key="type.id" class="cartitem"
+                             @click="selectType(type)"
+                             :class="`clearfix${type.id ==selectedType.id ? ' ItemActive' : ''}`">
+                            <img v-bind:src="'/picture/product/'+product.id+'/'+type.picture_url"/>
+                            <div>
+                                {{type.title}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <div class="roww" v-if="colors.length!=0">
 
                 <div class="coll">
@@ -176,7 +210,6 @@
             <div class="row1" v-if="!submit">
                 <a href="#"><i class="fab fa-facebook-f facebook-bg"></i></a>
                 <a href="#"><i class="fab fa-whatsapp whatsapp-bg"></i></a>
-
                 <input type="number" min="1" v-model="quantity" @focusout="quantityfocusout($event)"
                        @input="updateProductItem($event)" required>
                 <input type="button" @click="confirme" value="إضافة للسلة">
@@ -206,7 +239,8 @@
         props: {
             product: Object,
             colors: Object,
-            sizes: Object
+            sizes: Object,
+            types: Object,
         },
         data() {
             return {
@@ -229,6 +263,7 @@
                 commune: "",
                 selectedColor: "",
                 selectedSize: "",
+                selectedType: "",
                 load: false,
                 valid: false,
                 submit: false,
@@ -249,7 +284,7 @@
         },
 
         mounted() {
-            console.log(this.product)
+            console.log(this.types)
             axios.get("/getWilaya").then(({data}) => {
                 this.all_wilaya = data;
             });
@@ -276,8 +311,8 @@
             ,
             updateTotalAmount() {
                 if (this.confirm)
-                    this.totalItemsAmount = (parseInt(this.product['price']) + parseInt(this.selectedColor.price ? this.selectedColor.price : '0') + parseInt(this.selectedSize.price ? this.selectedSize.price : '0')) * this.quantity;
-                else this.totalItemsAmount = (parseInt(this.product['price']) + parseInt(this.selectedColor.price ? this.selectedColor.price : '0') + parseInt(this.selectedSize.price ? this.selectedSize.price : '0')) * this.quantity + parseInt(this.shiping.prix ? this.shiping.prix : '0');
+                    this.totalItemsAmount = (parseInt(this.product['price']) + parseInt(this.selectedColor.price ? this.selectedColor.price : '0') + parseInt(this.selectedSize.price ? this.selectedSize.price : '0') + parseInt(this.selectedType.price ? this.selectedType.price : '0')) * this.quantity;
+                else this.totalItemsAmount = (parseInt(this.product['price']) + parseInt(this.selectedColor.price ? this.selectedColor.price : '0') + parseInt(this.selectedSize.price ? this.selectedSize.price : '0') + parseInt(this.selectedType.price ? this.selectedType.price : '0')) * this.quantity + parseInt(this.shiping.prix ? this.shiping.prix : '0');
             }
 
             ,
@@ -298,7 +333,9 @@
             },
 
             addToCart() {
-                if (this.colors.length!=0 && !this.selectedColor) {
+                if (this.types.length!=0 && !this.selectedType) {
+                    this.errors = "يرجى إختيار النوع"
+                }else if (this.colors.length!=0 && !this.selectedColor) {
                     this.errors = "يرجى إختيار اللون"
                 } else if (this.sizes.length!=0 && !this.selectedSize) {
                     this.errors = "يرجى إختيار المقياس"
@@ -308,9 +345,10 @@
                         name: this.product['title'],
                         quantity: this.quantity,
                         price: this.totalItemsAmount/this.quantity,
+                        typeId: this.selectedType.id,
                         colorId: this.selectedColor.id,
                         sizeId: this.selectedSize.id,
-                        picture_url : (this.selectedColor.id ? this.selectedColor.picture_url:this.product['url_picture'])
+                        picture_url : this.selectedType ? this.selectedType.picture_url:(this.selectedColor.id ? this.selectedColor.picture_url:this.product['url_picture'])
                     }).then((response) => {
                         //                       this.load = false;
                         window.location.href = "?cart="+this.product['title'];
@@ -320,6 +358,11 @@
 
             selectColor(color) {
                 this.selectedColor = color;
+                this.updateTotalAmount();
+            },
+
+            selectType(type) {
+                this.selectedType = type;
                 this.updateTotalAmount();
             },
 

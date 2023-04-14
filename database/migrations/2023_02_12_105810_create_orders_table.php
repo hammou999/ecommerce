@@ -17,9 +17,9 @@ class CreateOrdersTable extends Migration
             $table->id();
             $table->string('full_name');
             $table->string('phone');
-            $table->string('address');
+            $table->string('adresse');
             $table->float('total');
-            $table->integer('status')->default(0);// 0 -> pending
+            $table->integer('status')->default(2);// 2 -> pending
             $table->foreignId('commune_id')->constrained("algeria_cities")->onDelete('cascade');
             $table->timestamps();
         });
