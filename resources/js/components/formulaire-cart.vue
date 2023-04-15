@@ -103,8 +103,8 @@
 
                     <div class="roww">
                     <span class="totalItemsAmount">
-                        {{this.shiping == 0 ? "إجمالي التكلفة بدون التوصيل(يرجى اختيار الولاية والبلدية لمعرفة السعر مع التوصيل): " : "إجمالي التكلفة مع التوصيل: "}}<span
-                        class="disDirection">{{this.totalItemsAmount.toString().replace(/\B(?=(\d{3})+(?!\d))/g," ")}},00</span> دج</span>
+                        {{this.shiping == 0 ? "إجمالي التكلفة بدون التوصيل(يرجى اختيار الولاية والبلدية لمعرفة السعر مع التوصيل): " : "إجمالي التكلفة مع التوصيل: "}}
+                        <span class="disDirection">{{this.totalItemsAmount.toString().replace(/\B(?=(\d{3})+(?!\d))/g," ")}},00</span> دج</span>
                     </div>
                     <div id="s" ref="s"></div>
                     <div class="coll2">
