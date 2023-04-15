@@ -1,3 +1,9 @@
+.disDirection {
+    direction: ltr !important;
+    unicode-bidi: embed !important;
+    white-space: nowrap;
+}
+
 .cont{
     width: 100%;
 }

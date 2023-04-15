@@ -41,11 +41,11 @@
         <h3 class="heading-primary">{{$product->title}}</h3>
         <div class="product-price">
             <span class="currency-value before">
-                <span class="value">{{$product->price}}</span>
+                <span class="value">{{$product->old_price}}</span>
                 <span class="currency">د.ج.‏</span>
             </span>
             <span class="currency-value after">
-                <span class="value">{{$product->old_price}}</span>
+                <span class="value">{{$product->price}}</span>
                 <span class="currency">د.ج‏</span>
             </span>
         </div>
@@ -53,7 +53,7 @@
 
 
     <div class="gallery js-flickity"
-         data-flickity-options='{"freeScroll": true,"contain": true}'>
+         data-flickity-options='{"freeScroll": true,"contain": true , "adaptiveHeight": true}'>
         @foreach($product->ProductPicture as $picture)
             <div class="gallery-cell">
                     <img src="{{asset("picture/product/"."$product->id"."/".$picture->picture_url)}}"/>

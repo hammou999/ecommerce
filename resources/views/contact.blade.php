@@ -14,7 +14,7 @@
 
 @section('header-top')
     <div class="header-call">
-        <a class="animate-charcter">
+        <a href="tel:0656207310" class="animate-charcter">
             للإستفسار: 0656207310
         </a>
     </div>
@@ -48,7 +48,7 @@
             </div>
             <div>
                 <span>للتواصل معنا عبر الهاتف:</span>
-                <span> 06.68.40.77.23 </span>
+                <span> 06.56.20.73.10 </span>
 
             </div>
             <div>

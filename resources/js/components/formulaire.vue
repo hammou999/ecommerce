@@ -147,7 +147,7 @@
                     <label for="adresse">النوع:<span class="totalItemsAmount">*</span></label>
                 </div>
                 <div class="coll">
-                    <div class="grilcolor" ref="selectedType">
+                    <div class="grilcolor" ref="types">
                         <div v-for="type in types" :key="type.id" class="cartitem"
                              @click="selectType(type)"
                              :class="`clearfix${type.id ==selectedType.id ? ' ItemActive' : ''}`">
@@ -165,7 +165,7 @@
                     <label for="adresse">اللون:<span class="totalItemsAmount">*</span></label>
                 </div>
                 <div class="coll">
-                    <div class="grilcolor" ref="selectedColor">
+                    <div class="grilcolor" ref="colors">
                         <div v-for="color in colors" :key="color.id" class="cartitem"
                              @click="selectColor(color)"
                              :class="`clearfix${color.id ==selectedColor.id ? ' ItemActive' : ''}`">
@@ -182,7 +182,7 @@
                     <label for="adresse">القيس:<span class="totalItemsAmount">*</span></label>
                 </div>
                 <div class="coll">
-                    <div class="grilcolor" ref="selectedSize">
+                    <div class="grilcolor" ref="sizes">
                         <div v-for="size in sizes" :key="size.id" @click="selectSize(size)" class="sizeitem"
                              :class="`clearfix${size.id == selectedSize.id ? ' ItemActive' : ''}`">
                             {{size.title}}
@@ -390,24 +390,29 @@
                     setTimeout(() => this.$refs.fname.focus(), 500);
                     this.errors = "يرجى إدخال الإسم واللقب بشكل صحيح"
                 } else if (!/^[0][567][0-9]{8}$/.test(this.phone)) {
-                    this.$refs.fname.scrollIntoView({behavior: 'smooth', block: "start", inline: "nearest"});
+                    this.$refs.phone.scrollIntoView({behavior: 'smooth', block: "start", inline: "nearest"});
                     setTimeout(() => this.$refs.phone.focus(), 500);
                     this.errors = "يرجى التأكد من رقم هاتف المدخل "
                 } else if (!/^.{4,30}$/.test(this.adresse)) {
-                    this.$refs.fname.scrollIntoView({behavior: 'smooth', block: "start", inline: "nearest"});
+                    this.$refs.adresse.scrollIntoView({behavior: 'smooth', block: "start", inline: "nearest"});
                     setTimeout(() => this.$refs.adresse.focus(), 500);
                     this.errors = "يرجى إدخال عنوان صحيح"
                 } else if (this.wilaya.length == 0) {
-                    this.$refs.fname.scrollIntoView({behavior: 'smooth', block: "start", inline: "nearest"});
+                    this.$refs.wilaya.scrollIntoView({behavior: 'smooth', block: "start", inline: "nearest"});
                     setTimeout(() => this.$refs.wilaya.focus(), 500);
                     this.errors = "يرجى إختيار الولاية"
                 } else if (this.commune.length == 0) {
-                    this.$refs.fname.scrollIntoView({behavior: 'smooth', block: "start", inline: "nearest"});
+                    this.$refs.commune.scrollIntoView({behavior: 'smooth', block: "start", inline: "nearest"});
                     setTimeout(() => this.$refs.commune.focus(), 500);
                     this.errors = "يرجى إختيار البلدية"
-                } else if (this.selectedColor.length == 0) {
-                    this.$refs.selectedColor.scrollIntoView({behavior: 'smooth', block: "start", inline: "nearest"});
-                    setTimeout(() => this.$refs.selectedColor.focus(), 500);
+                } else if (this.types.length!=0 && this.selectedType.length == 0) {
+                    this.$refs.types.scrollIntoView({behavior: 'smooth', block: "start", inline: "nearest"});
+                    this.errors = "يرجى نوع المنتج"
+                } else if (this.colors.length!=0 && this.selectedColor.length == 0) {
+                    this.$refs.colors.scrollIntoView({behavior: 'smooth', block: "start", inline: "nearest"});
+                    this.errors = "يرجى نوع المنتج"
+                } else if (this.sizes.length!=0 && this.selectedSize.length == 0) {
+                    this.$refs.sizes.scrollIntoView({behavior: 'smooth', block: "start", inline: "nearest"});
                     this.errors = "يرجى نوع المنتج"
                 } else {
                     this.load = true;
@@ -417,7 +422,7 @@
                         adresse: this.adresse,
                         commune_id: this.commune,
                         total: this.totalItemsAmount,
-                        products: [{"product_id":this.product.id,"quantity": this.quantity , "color_id":this.selectedColor.id, "size_id":this.selectedSize.id}]
+                        products: [{"product_id":this.product.id,"quantity": this.quantity , "type_id":this.selectedType.id?this.selectedType.id:"", "color_id":this.selectedColor.id?this.selectedColor.id:"", "size_id":this.selectedSize.id?this.selectedSize.id:"", "picture_url":this.selectedType ? this.selectedType.picture_url:(this.selectedColor.id ? this.selectedColor.picture_url:this.product['url_picture'])}]
                     }).then((response) => {
                         //                       this.load = false;
                         window.location.href = "?name=" + this.fullname;
@@ -1105,6 +1110,7 @@
     .disDirection {
         direction: ltr !important;
         unicode-bidi: embed !important;
+        white-space: nowrap;
     }
 
     .box-confirm .roww {

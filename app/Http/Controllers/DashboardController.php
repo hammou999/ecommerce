@@ -12,7 +12,7 @@ class DashboardController extends Controller
 
     public function index() {
         \DB::enableQueryLog();
-        $orders = Order::with('Commune')
+        $orders = Order::with('Commune')->orderBy('created_at', 'desc')
                        ->with('OrderProducts.Product')
                        ->with('OrderProducts.ProductType')
                        ->with('OrderProducts.ProductColor')

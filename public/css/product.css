@@ -9,6 +9,10 @@
     text-align: right !important;
 }
 
+.flickity-viewport {
+    transition: height 0.2s;
+}
+
 .header-call{
     position: fixed;
     top: 0;
@@ -323,11 +327,14 @@ product-thumbnail, product-thumbnail:active, product-thumbnail:hover {
     display: flex;
     flex-direction: row;
 }
+
 .item-list p{
     padding-right: 10px;
     font-size: 18px;
-    text-align: right;
     font-weight: bolder;
+    text-align: justify;
+    text-justify: inter-character;
+    line-height: 1.8rem;
 }
 
 
