@@ -4,7 +4,6 @@
 <head>
     <meta charset="utf-8">
     <!-- Meta Pixel Code -->
-    <meta name="facebook-domain-verification" content="ngfkmtzre2vk2pwiiyyjbpuwcdhzvz" />
     <script>
         !function(f,b,e,v,n,t,s)
         {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -14,28 +13,11 @@
             t.src=v;s=b.getElementsByTagName(e)[0];
             s.parentNode.insertBefore(t,s)}(window, document,'script',
             'https://connect.facebook.net/en_US/fbevents.js');
-        fbq('init', '722895339617110');
-        fbq('track', 'PageView');
-    </script>
-    <!-- Meta Pixel Code -->
-    <script>
-        !function(f,b,e,v,n,t,s)
-        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-            n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-            if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-            n.queue=[];t=b.createElement(e);t.async=!0;
-            t.src=v;s=b.getElementsByTagName(e)[0];
-            s.parentNode.insertBefore(t,s)}(window, document,'script',
-            'https://connect.facebook.net/en_US/fbevents.js');
-        fbq('init', '201576999282096');
+        fbq('init', '1589114801562890');
         fbq('track', 'PageView');
     </script>
     <noscript><img height="1" width="1" style="display:none"
-                   src="https://www.facebook.com/tr?id=201576999282096&ev=PageView&noscript=1"
-        /></noscript>
-    <!-- End Meta Pixel Code -->
-    <noscript><img height="1" width="1" style="display:none"
-                   src="https://www.facebook.com/tr?id=722895339617110&ev=PageView&noscript=1"
+                   src="https://www.facebook.com/tr?id=1589114801562890&ev=PageView&noscript=1"
         /></noscript>
     <!-- End Meta Pixel Code -->
     @yield('meta')
